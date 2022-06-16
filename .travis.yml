@@ -1,0 +1,6 @@
+language: c
+sudo: false
+compiler:
+  - gcc
+    script cmake --build build
+    ./build/main

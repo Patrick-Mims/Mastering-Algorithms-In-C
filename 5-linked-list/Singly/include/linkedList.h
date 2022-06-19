@@ -3,12 +3,14 @@
 
 struct node
 {
-  short data;
+  int data;
   char address[25];
   struct node *nextPtr;
 };
 
-void list_init(struct node *);
-void list_insert(struct node **, short);
+void init(struct node *);
+void insert(struct node **, int);
+void display(struct node *);
+void delete_value(struct node **, int);
 
 #endif

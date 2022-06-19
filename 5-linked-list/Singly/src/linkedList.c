@@ -4,7 +4,9 @@
 
 #include "linkedList.h"
 
-void list_init(struct node *list)
+/* Initialize list
+ * */
+void init(struct node *list)
 {
   if((list = malloc(sizeof(struct node))) == NULL)
     exit(EXIT_FAILURE);
@@ -12,7 +14,9 @@ void list_init(struct node *list)
   printf("Linked List Initialized\n");
 }
 
-void list_insert(struct node **list, short item)
+/* Insert into list
+ * */
+void insert(struct node **list, int item)
 {
   struct node *newNode = NULL;
 
@@ -25,7 +29,9 @@ void list_insert(struct node **list, short item)
   *list = newNode;
 }
 
-void list_display(struct node *list)
+/* Display list
+ * */
+void display(struct node *list)
 {
   struct node *d = NULL;
 
@@ -33,4 +39,25 @@ void list_display(struct node *list)
   {
     printf("Display: %hu\n", d->data);
   }
+}
+
+/* Delete a value from the list
+ * */
+void delete_value(struct node **list, int item)
+{
+  struct node *cNode = NULL;
+  struct node *pNode = NULL;
+
+  for(cNode = *list; cNode != NULL && cNode->data != item;
+      pNode = cNode, cNode = cNode->nextPtr)
+    ;
+
+  if(cNode == NULL)
+    printf("Item was not found\n");
+
+  if(pNode == NULL)
+    *list = (*list)->nextPtr;
+
+
+  free(cNode);
 }

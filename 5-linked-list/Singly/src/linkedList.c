@@ -19,7 +19,7 @@ void init(struct node *list)
  * */
 void insert(struct node **list, int item)
 {
-  printf("Insert: %d\n", item);
+  printf("Insert -> %d\n", item);
   struct node *newNode = NULL;
 
   if((newNode = malloc(sizeof(struct node))) == NULL)
@@ -37,7 +37,7 @@ void display(struct node **list)
 {
   printf("Display\n");
 
-  for(*list; *list != NULL; *list = (*list)->nextPtr )
+  for(*list; *list != NULL; *list = (*list)->nextPtr)
     printf("%hu\n", (*list)->data);
 }
 
@@ -45,7 +45,8 @@ void display(struct node **list)
  * */
 void delete_value(struct node **list, int item)
 {
-  printf("Delete Value: %d\n", item);
+  printf("Deleting Value -> %d\n", item);
+
   struct node *cNode = NULL;
   struct node *pNode = NULL;
 
@@ -54,7 +55,10 @@ void delete_value(struct node **list, int item)
     ;
 
   if(cNode == NULL)
+  {
     printf("Item was not found\n");
+    exit(EXIT_FAILURE);
+  }
 
   if(pNode == NULL)
     *list = (*list)->nextPtr;
@@ -62,6 +66,7 @@ void delete_value(struct node **list, int item)
     (*list)->nextPtr = (*list)->nextPtr;
 }
 
+/* start here */
 void search(struct node **list)
 {
 

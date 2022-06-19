@@ -8,6 +8,7 @@
  * */
 void init(struct node *list)
 {
+  printf("Initialize List\n");
   if((list = malloc(sizeof(struct node))) == NULL)
     exit(EXIT_FAILURE);
 
@@ -18,6 +19,7 @@ void init(struct node *list)
  * */
 void insert(struct node **list, int item)
 {
+  printf("Insert: %d\n", item);
   struct node *newNode = NULL;
 
   if((newNode = malloc(sizeof(struct node))) == NULL)
@@ -34,17 +36,17 @@ void insert(struct node **list, int item)
 void display(struct node *list)
 {
   struct node *d = NULL;
+  printf("Display\n");
 
   for(d = list; d != NULL; d = d->nextPtr)
-  {
-    printf("Display: %hu\n", d->data);
-  }
+    printf("%hu\n", d->data);
 }
 
 /* Delete a value from the list
  * */
 void delete_value(struct node **list, int item)
 {
+  printf("Delete Value: %d\n", item);
   struct node *cNode = NULL;
   struct node *pNode = NULL;
 
@@ -57,7 +59,6 @@ void delete_value(struct node **list, int item)
 
   if(pNode == NULL)
     *list = (*list)->nextPtr;
-
-
-  free(cNode);
+  else
+    (*list)->nextPtr = (*list)->nextPtr;
 }

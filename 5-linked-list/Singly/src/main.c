@@ -16,12 +16,10 @@ int main(int argc, char argv)
   display(head);
   insert(&head,3000);
   display(head);
-  /*
   insert(&head,4000);
   insert(&head,5000);
   delete_value(&head,4000);
   display(head);
-  */
 
   return 0;
 }

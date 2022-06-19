@@ -33,13 +33,12 @@ void insert(struct node **list, int item)
 
 /* Display list
  * */
-void display(struct node *list)
+void display(struct node **list)
 {
-  struct node *d = NULL;
   printf("Display\n");
 
-  for(d = list; d != NULL; d = d->nextPtr)
-    printf("%hu\n", d->data);
+  for(*list; *list != NULL; *list = (*list)->nextPtr )
+    printf("%hu\n", (*list)->data);
 }
 
 /* Delete a value from the list
@@ -61,4 +60,9 @@ void delete_value(struct node **list, int item)
     *list = (*list)->nextPtr;
   else
     (*list)->nextPtr = (*list)->nextPtr;
+}
+
+void search(struct node **list)
+{
+
 }

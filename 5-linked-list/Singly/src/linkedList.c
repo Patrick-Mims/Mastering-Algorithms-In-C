@@ -4,11 +4,14 @@
 
 #include "linkedList.h"
 
+static int counter = 0;
+
 /* Initialize list
  * */
 void init(struct node *list)
 {
   printf("Initialize List\n");
+
   if((list = malloc(sizeof(struct node))) == NULL)
     exit(EXIT_FAILURE);
 
@@ -19,6 +22,7 @@ void init(struct node *list)
  * */
 void insert(struct node **list, int item)
 {
+  counter = counter + 1;
   printf("Insert -> %d\n", item);
   struct node *newNode = NULL;
 
@@ -45,6 +49,7 @@ void display(struct node **list)
  * */
 void delete_value(struct node **list, int item)
 {
+  counter = counter - 1;
   printf("Deleting Value -> %d\n", item);
 
   struct node *cNode = NULL;
@@ -66,8 +71,17 @@ void delete_value(struct node **list, int item)
     (*list)->nextPtr = (*list)->nextPtr;
 }
 
-/* start here */
-void search(struct node **list)
+int getsize()
 {
-
+  return counter;
 }
+
+/*
+   bool isHead(head){}
+   bool isTail(head){}
+   void destroy(){}
+   void head(head){}
+   void next(head){}
+   void search(struct node **list){}
+   void tail(&head){}
+ */

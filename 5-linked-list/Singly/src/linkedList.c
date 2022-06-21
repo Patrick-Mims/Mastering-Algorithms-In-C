@@ -71,7 +71,7 @@ void delete_value(struct node **list, int item)
     (*list)->nextPtr = (*list)->nextPtr;
 }
 
-int getsize()
+int list_size()
 {
   return counter;
 }

@@ -14,5 +14,5 @@ void insert(struct node **, int);
 void display(struct node **);
 void delete_value(struct node **, int);
 void search(struct node **);
-int getsize();
+int list_size();
 #endif

@@ -27,7 +27,7 @@ int main(int argc, char argv)
 
   printf("\n");
 
-  printf("Size: %d\n", getsize());
+  printf("Size: %d\n", list_size());
   /*
   printf("\n");
   delete_value(&head,4000);
